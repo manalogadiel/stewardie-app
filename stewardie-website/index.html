@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stewardie - Your people. Your plans. Your little moments.</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-waves"></div>
+    <div class="bg-motifs"></div>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/branding/stewardie-icon2.png" alt="Stewardie Logo">
+                <span>Stewardie</span>
+            </div>
+            <a href="https://github.com/manalogadiel/stewardie/releases/latest" class="btn">Download APK</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Your people.<br>Your plans.<br>Your little moments.</h1>
+                    <p>A cozy, tactile shared-life companion app for families, housemates, dormmates, and crews.
+                        Transform daily responsibilities into seamless teamwork and everyday routines into shared
+                        celebration with a signature Soft Pop aesthetic.</p>
+                    <div class="cta-group">
+                        <a href="https://github.com/manalogadiel/stewardie/releases/latest" class="btn btn-large"
+                            target="_blank">Download Android APK</a>
+                        <button class="btn btn-outline btn-large" disabled
+                            style="opacity: 0.75; cursor: not-allowed; display: inline-flex; align-items: center; gap: 10px;">
+                            <img src="assets/branding/google-play-store.png" alt="Google Play Store" width="24"
+                                height="24" style="object-fit: contain; display: block;">
+                            Coming Soon to Google Play
+                        </button>
+                    </div>
+                </div>
+                <!-- Interactive Phone Mockup -->
+                <div class="hero-app-preview">
+                    <div class="phone-mockup">
+                        <div id="demo-loader" class="demo-loader">
+                            <img src="assets/illustrations/moments-loader-trio.png" alt="Loading Mascot"
+                                class="loader-mascot">
+                            <p>Loading demo app...</p>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="demo-progress-fill"></div>
+                            </div>
+                        </div>
+                        <iframe src="app/index.html" frameborder="0" class="app-iframe"
+                            allow="camera; microphone; geolocation"></iframe>
+                    </div>
+
+                    <!-- Floating elements responding to cursor -->
+                    <img src="assets/illustrations/tour-task-helper.png" class="floating-element float-1" alt="Decor 1">
+                    <img src="assets/illustrations/tour-moment-camera.png" class="floating-element float-2"
+                        alt="Decor 2">
+                    <img src="assets/illustrations/tour-mood-checkin.png" class="floating-element float-3"
+                        alt="Decor 3">
+                </div>
+            </div>
+        </section>
+
+        <section class="pitch">
+            <div class="container">
+                <h2>Who's taking out the recycling? Did anyone feed the cat?</h2>
+                <p>Most shared organizers feel either like cold enterprise ticketing systems or chaotic messaging group
+                    chats where tasks get buried. <strong>Stewardie changes that dynamic completely.</strong></p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature-item">
+                    <div class="feature-img-wrapper">
+                        <img src="assets/illustrations/tour-task-helper.png" alt="Today Flow">
+                    </div>
+                    <h3>The "Today" Flow</h3>
+                    <p>Zero-friction responsibility, no micromanagement. Tasks flow naturally through clear states:
+                        Unclaimed, Requested, Covered ("I've got it!"), and Done.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-img-wrapper">
+                        <img src="assets/illustrations/tour-moment-camera.png" alt="Moments">
+                    </div>
+                    <h3>Moments Camera</h3>
+                    <p>Dedicated in-app camera. Attach completion photos to tasks or post standalone candid moments.
+                        Share quick memories and leave grateful heart reactions.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-img-wrapper">
+                        <img src="assets/illustrations/tour-mood-checkin.png" alt="Moods">
+                    </div>
+                    <h3>Daily Mood Check-Ins</h3>
+                    <p>Low-pressure daily check-ins pairing a mood status with customized pastel clay colors (Sky,
+                        Butter, Rose). Quickly signal teammates if you could use a hand.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-img-wrapper">
+                        <img src="assets/illustrations/tour-calendar-planner.png" alt="Calendar">
+                    </div>
+                    <h3>Smart Calendar & Agenda</h3>
+                    <p>Unified chronological timeline with person-aware filtering. Toggle between Shared, Your, or
+                        specific co-members without switching identities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="spaces">
+            <div class="container spaces-content">
+                <div class="spaces-image">
+                    <img src="assets/illustrations/mascot-friends-cutout.png" alt="Friends Mascot">
+                </div>
+                <div class="spaces-text">
+                    <h2>Shared Spaces & Dynamic Memberships</h2>
+                    <p>Create dedicated spaces for your Family, Housemates, Friends, or Crew. Join via 6-character
+                        invite codes, universal links, or QR code scanning with a built-in mobile scanner. Privacy-first
+                        by default with private cloud storage and granular member controls.</p>
+                    <a href="https://github.com/manalogadiel/stewardie" class="btn" target="_blank">View Project
+                        Source</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/branding/stewardie-icon.png" alt="Stewardie Icon" width="40">
+                    <span>Stewardie</span>
+                </div>
+                <p>Designed and engineered by Gadiel Manalo and georgie.<br>Licensed under AGPLv3.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

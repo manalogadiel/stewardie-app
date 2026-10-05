@@ -1,0 +1,633 @@
+:root {
+    --bg-color: #FFFDF9; /* Soft cream background */
+    --text-primary: #3B3833;
+    --text-secondary: #757068;
+    --accent-sky: #A8D1E7;
+    --accent-butter: #F9E2AF;
+    --accent-rose: #F4B8E4;
+    --primary-button: #FF8BA7;
+    --primary-button-hover: #FF7092;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Responsive Graphic Backgrounds */
+.bg-waves {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110vh;
+    background-image: url('assets/illustrations/background-soft-waves.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: -2;
+}
+
+.bg-motifs {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    height: 150vh;
+    background-image: url('assets/illustrations/background-clay-motifs.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-y;
+    opacity: 0.1;
+    z-index: -1;
+    animation: drift 60s linear infinite;
+}
+
+@keyframes drift {
+    from { background-position: 0 0; }
+    to { background-position: 0 1000px; }
+}
+
+h1, h2, h3, .logo span {
+    font-family: 'Fredoka', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.header {
+    padding: 2rem 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-button);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(255, 139, 167, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--primary-button-hover);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 139, 167, 0.4);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background-color: var(--text-primary);
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.hero {
+    padding: 6rem 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Interactive Phone Mockup */
+.hero-app-preview {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    perspective: 1000px;
+}
+
+.phone-mockup {
+    width: 320px;
+    height: 660px;
+    background: #ffffff;
+    border-radius: 42px;
+    border: 11px solid #3B3833;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15), inset 0 0 0 4px #e5e5e5;
+    overflow: hidden;
+    z-index: 10;
+    transform: rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.phone-mockup:hover {
+    transform: rotateY(0deg) rotateX(0deg) translateY(-10px);
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 22px;
+    background: #3B3833;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    z-index: 20;
+}
+
+.app-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 31px;
+    background: #FFFDF9; /* fallback background */
+}
+
+/* Demo Loader */
+.demo-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 15; /* Above iframe, below notch */
+    transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.6s;
+    border-radius: 31px;
+}
+
+.demo-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-mascot {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    animation: gentle-bounce 2s infinite ease-in-out;
+}
+
+.demo-loader p {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-container {
+    width: 150px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background-color: var(--accent-sky);
+    border-radius: 4px;
+    transition: width 0.3s ease-out;
+}
+
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Floating Elements (Mascots around Phone Mockup) */
+.floating-element {
+    position: absolute;
+    height: auto;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.12));
+    z-index: 5;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+}
+
+/* Desktop default positioning: subtle overlap with phone bezel (~20px) so mascots peek out visibly */
+.float-1 {
+    top: 6%;
+    left: calc(50% - 285px);
+    right: auto;
+    width: 145px;
+}
+
+.float-2 {
+    bottom: 18%;
+    left: calc(50% + 140px);
+    right: auto;
+    width: 130px;
+}
+
+.float-3 {
+    top: 54%;
+    left: calc(50% - 265px);
+    right: auto;
+    width: 125px;
+}
+
+.pitch {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    max-width: 900px;
+    margin: 0 auto 6rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.03);
+}
+
+.pitch h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-button);
+}
+
+.pitch p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.features {
+    padding: 6rem 0;
+    background-color: white;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.03);
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    background: var(--bg-color);
+}
+
+.feature-img-wrapper {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover img {
+    transform: scale(1.05);
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-item p {
+    color: var(--text-secondary);
+}
+
+.spaces {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.spaces-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background: var(--bg-color);
+    padding: 4rem;
+    border-radius: 3rem;
+}
+
+.spaces-image {
+    flex: 1;
+}
+
+.spaces-image img {
+    max-width: 100%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+.spaces-text {
+    flex: 1;
+}
+
+.spaces-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.spaces-text p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: white;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    /* Slightly tighter mascot layout for laptops / medium desktops */
+    .float-1 {
+        top: 6%;
+        left: calc(50% - 250px);
+        width: 125px;
+    }
+    .float-2 {
+        bottom: 18%;
+        left: calc(50% + 125px);
+        width: 115px;
+    }
+    .float-3 {
+        top: 54%;
+        left: calc(50% - 235px);
+        width: 110px;
+    }
+}
+
+@media (max-width: 900px) {
+    .spaces-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2.5rem;
+    }
+    .hero-text p {
+        margin: 0 auto 2.5rem;
+    }
+    .cta-group {
+        justify-content: center;
+    }
+    .hero-text h1 {
+        font-size: 3.25rem;
+    }
+    .hero-app-preview {
+        padding: 1.5rem 0;
+    }
+    /* Mascots centered around phone device */
+    .float-1 {
+        top: 5%;
+        left: calc(50% - 240px);
+        width: 120px;
+    }
+    .float-2 {
+        bottom: 16%;
+        left: calc(50% + 120px);
+        width: 110px;
+    }
+    .float-3 {
+        top: 55%;
+        left: calc(50% - 225px);
+        width: 105px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        gap: 2rem;
+    }
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .float-1 {
+        top: 4%;
+        left: calc(50% - 210px);
+        width: 100px;
+    }
+    .float-2 {
+        bottom: 14%;
+        left: calc(50% + 110px);
+        width: 95px;
+    }
+    .float-3 {
+        top: 54%;
+        left: calc(50% - 200px);
+        width: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    header .container {
+        padding: 0 1rem;
+    }
+    header .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap; /* Prevent 2 lines */
+    }
+    .logo span {
+        font-size: 1.5rem;
+    }
+    .logo img {
+        width: 36px;
+        height: 36px;
+    }
+    .logo {
+        gap: 0.5rem;
+    }
+
+    /* Mobile app preview & mascots:
+       Position mascots so they peek playfully around the phone corners/edges
+       without being cut off by the mobile screen boundaries or covering the demo app */
+    .hero-app-preview {
+        padding: 3rem 0;
+        margin: 0.5rem 0;
+    }
+    .phone-mockup {
+        width: 300px;
+        max-width: 85vw;
+        height: 620px;
+        max-height: 78vh;
+        border-radius: 38px;
+        border: 10px solid #3B3833;
+        transform: none !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.12), inset 0 0 0 4px #e5e5e5;
+    }
+    .phone-mockup:hover {
+        transform: none !important;
+    }
+    .app-iframe, .demo-loader {
+        border-radius: 28px;
+    }
+    .phone-notch {
+        width: 100px;
+        height: 20px;
+    }
+    .float-1 {
+        top: -24px;
+        left: calc(50% - 130px);
+        right: auto;
+        width: 80px;
+        z-index: 5;
+    }
+    .float-2 {
+        bottom: -22px;
+        right: calc(50% - 130px);
+        left: auto;
+        width: 80px;
+        z-index: 5;
+    }
+    .float-3 {
+        top: auto;
+        bottom: -20px;
+        left: calc(50% - 130px);
+        right: auto;
+        width: 75px;
+        z-index: 5;
+    }
+}
+
+@media (max-width: 360px) {
+    .phone-mockup {
+        width: 280px;
+        max-width: 84vw;
+        height: 580px;
+    }
+    .float-1 {
+        top: -20px;
+        left: calc(50% - 115px);
+        width: 70px;
+    }
+    .float-2 {
+        bottom: -18px;
+        right: calc(50% - 115px);
+        width: 70px;
+    }
+    .float-3 {
+        bottom: -16px;
+        left: calc(50% - 115px);
+        width: 65px;
+    }
+}
