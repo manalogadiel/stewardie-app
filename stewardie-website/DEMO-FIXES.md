@@ -20,6 +20,12 @@ now continues across that inactive state; hiding or pausing the app still
 releases the camera. Permission failures explain browser site permissions;
 insecure origins explain the HTTPS/localhost requirement.
 
+Onboarding's **Take photo** option opens a live webcam preview instead of a
+desktop file picker. Capture returns to the existing crop confirmation dialog.
+Cancel, Escape, capture completion, or hiding the page releases the stream.
+Permission errors provide recovery instructions. **Choose from photos** retains
+the regular file picker.
+
 ## Profile photo
 
 The confirmed onboarding photo now updates the demo member `me`, including
@@ -29,10 +35,16 @@ Existing photos in the old onboarding draft are recovered on startup. Removing
 the photo or resetting the demo clears the saved avatar. If browser storage is
 blocked, the current session still updates its avatars.
 
+Private device-location map pins now use the same demo member ID and name as
+the main screens, so their avatars display the saved profile photo.
+
 ## Verification
 
 Chrome browser checks passed for photo selection/crop confirmation, rendering
-in the main app, reload persistence, old-draft recovery, and demo reset. Camera
+in the main app and private-location map pin, reload persistence, old-draft
+recovery, and demo reset. The onboarding camera opened without a file chooser,
+and capture returned to crop confirmation; cancellation released the stream
+and permission denial showed recovery instructions. Camera
 checks used Chrome's simulated webcam plus a disconnected device entry:
 discovery opened one stream and released it, and the working camera initialized
 and captured a nonempty JPEG. Physical camera hardware was not tested.
