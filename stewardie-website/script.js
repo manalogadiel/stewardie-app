@@ -17,6 +17,8 @@ class JellyElement {
         
         // Idle animation state
         this.randomOffset = Math.random() * 1000;
+        this.speedX = 1.0 + Math.random() * 0.8; // Random speed between 1.0 and 1.8
+        this.speedY = 1.5 + Math.random() * 1.0; // Random speed between 1.5 and 2.5
         this.isHovered = false;
         
         if (!isBackground) {
@@ -44,8 +46,8 @@ class JellyElement {
         if (!this.isHovered && !this.isBackground) {
             // Idle float for mascots
             const time = Date.now() / 1000;
-            this.targetY = Math.sin(time * 2 + this.randomOffset) * 15;
-            this.targetX = Math.cos(time * 1.5 + this.randomOffset) * 5;
+            this.targetY = Math.sin(time * this.speedY + this.randomOffset) * 15;
+            this.targetX = Math.cos(time * this.speedX + this.randomOffset) * 5;
         }
         
         // Spring physics
@@ -148,4 +150,42 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     }
     animate();
+
+    // Premium Custom Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 2000; // 2.0 seconds for a slower, more relaxed travel
+                let start = null;
+                
+                function step(timestamp) {
+                    if (!start) start = timestamp;
+                    const progress = timestamp - start;
+                    
+                    // EaseInOutQuint easing function for a very premium feel
+                    const easeInOutQuint = p => {
+                        return p < 0.5 ? 16 * Math.pow(p, 5) : 1 - Math.pow(-2 * p + 2, 5) / 2;
+                    };
+
+                    const percentage = Math.min(progress / duration, 1);
+                    window.scrollTo(0, startPosition + distance * easeInOutQuint(percentage));
+                    
+                    if (progress < duration) {
+                        window.requestAnimationFrame(step);
+                    }
+                }
+                
+                window.requestAnimationFrame(step);
+            }
+        });
+    });
 });
