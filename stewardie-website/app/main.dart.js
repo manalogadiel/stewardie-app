@@ -157393,5 +157393,6 @@ convertToFastObject($);(function(a){if(typeof document==="undefined"){a(null)
 return}if(typeof document.currentScript!="undefined"){a(document.currentScript)
 return}var s=document.scripts
 function onLoad(b){for(var q=0;q<s.length;++q){s[q].removeEventListener("load",onLoad,false)}a(b.target)}for(var r=0;r<s.length;++r){s[r].addEventListener("load",onLoad,false)}})(function(a){v.currentScript=a
+if (window.stewardieDemo) window.stewardieDemo.install(A,B,$,t);
 var s=A.bfz
 if(typeof dartMainRunner==="function"){dartMainRunner(s,[])}else{s([])}})})()
